@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "Academic portfolio site built with Eleventy",
   "scripts": {
-    "dev": "eleventy --serve",
+    "dev": "eleventy --serve --pathprefix=/v2/",
     "build": "eleventy",
     "clean": "rm -rf v2"
   },
