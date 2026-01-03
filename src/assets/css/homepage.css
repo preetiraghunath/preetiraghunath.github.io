@@ -1,0 +1,45 @@
+/* Homepage-specific styles */
+
+.homepage-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    gap: 60px;
+}
+
+.hero-section {
+    text-align: center;
+}
+
+.hero-name {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    color: #5a6c7d;
+    font-weight: 400;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .homepage-container {
+        gap: 40px;
+        padding: 30px 20px;
+    }
+
+    .hero-name {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+}
