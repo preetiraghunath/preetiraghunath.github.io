@@ -1,0 +1,67 @@
+/* Tile component styles */
+
+.tiles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
+    gap: 40px;
+    max-width: 900px;
+    width: 100%;
+    justify-content: center;
+}
+
+.role-tile {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 60px 40px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.role-tile:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+}
+
+.role-tile:active {
+    transform: translateY(-4px);
+}
+
+.role-tile h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 16px;
+}
+
+.role-tile p {
+    font-size: 1.1rem;
+    color: #5a6c7d;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .tiles-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 0 10px;
+    }
+
+    .role-tile {
+        padding: 40px 30px;
+    }
+
+    .role-tile h2 {
+        font-size: 1.6rem;
+    }
+
+    .role-tile p {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,133 @@
+/* Role pages styles */
+
+.role-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header styles for role pages */
+header {
+    padding: 60px 40px 40px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #5a6c7d;
+    font-weight: 400;
+    margin: 0;
+}
+
+main.role-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    flex: 1;
+}
+
+/* Navigation controls */
+.role-nav {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.close-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.7);
+    transform: scale(1.05);
+}
+
+.close-btn:active {
+    transform: scale(0.98);
+}
+
+.close-btn svg {
+    width: 24px;
+    height: 24px;
+    stroke: #2c3e50;
+    stroke-width: 2;
+}
+
+.swipe-indicator {
+    font-size: 0.85rem;
+    color: #5a6c7d;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 8px 16px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+/* Placeholder content */
+.role-header {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.role-header h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 16px;
+}
+
+.coming-soon {
+    font-size: 1.2rem;
+    color: #5a6c7d;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 40px 20px 30px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    main.role-content {
+        padding: 20px;
+    }
+
+    .role-nav {
+        top: 12px;
+        right: 12px;
+    }
+
+    .swipe-indicator {
+        display: none;
+    }
+
+    .close-btn {
+        width: 44px;
+        height: 44px;
+    }
+}

@@ -1,0 +1,12 @@
+---
+layout: layouts/base.njk
+---
+
+<div class="role-page" data-role="{{ roleType }}" data-prev="{{ prevPage }}" data-next="{{ nextPage }}">
+    {% include "components/role-nav.njk" %}
+    {% include "components/header.njk" %}
+
+    <main class="role-content">
+        {{ content | safe }}
+    </main>
+</div>

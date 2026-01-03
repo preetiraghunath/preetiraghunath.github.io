@@ -3,14 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="view-transition" content="same-origin">
     <title>{{ title }} - {{ site.author }}</title>
+
+    <!-- Base CSS -->
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | url }}">
+
+    <!-- Page-specific CSS -->
+    {% if roleType %}
+    <link rel="stylesheet" href="{{ '/assets/css/role-pages.css' | url }}">
+    {% else %}
+    <link rel="stylesheet" href="{{ '/assets/css/homepage.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/tiles.css' | url }}">
+    {% endif %}
+
+    <!-- Transitions CSS -->
+    <link rel="stylesheet" href="{{ '/assets/css/transitions.css' | url }}">
+
+    <!-- JavaScript -->
+    <script src="{{ '/assets/js/view-transitions.js' | url }}" defer></script>
+    {% if roleType %}
+    <script src="{{ '/assets/js/swipe-navigation.js' | url }}" defer></script>
+    <script src="{{ '/assets/js/role-navigation.js' | url }}" defer></script>
+    {% endif %}
 </head>
 <body>
-    {% include "components/header.njk" %}
-
-    <main>
-        {{ content | safe }}
-    </main>
+    {{ content | safe }}
 </body>
 </html>

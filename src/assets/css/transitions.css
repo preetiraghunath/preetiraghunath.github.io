@@ -1,0 +1,93 @@
+/* View Transitions API animations */
+
+@view-transition {
+    navigation: auto;
+}
+
+/* Fade transition for supported browsers */
+@media (prefers-reduced-motion: no-preference) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation-duration: 0.4s;
+    }
+
+    ::view-transition-old(root) {
+        animation-name: fade-out;
+    }
+
+    ::view-transition-new(root) {
+        animation-name: fade-in;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Tile-specific transitions */
+.role-tile {
+    view-transition-name: role-tile;
+}
+
+/* Prevent transition flicker */
+.role-page {
+    view-transition-name: role-content;
+}
+
+/* Swipe animation classes (applied by JS) */
+.swipe-left-enter {
+    animation: swipe-left-in 0.3s ease-out;
+}
+
+.swipe-right-enter {
+    animation: swipe-right-in 0.3s ease-out;
+}
+
+@keyframes swipe-left-in {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes swipe-right-in {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation: none !important;
+    }
+
+    .swipe-left-enter,
+    .swipe-right-enter {
+        animation: none !important;
+    }
+}
