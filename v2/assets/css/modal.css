@@ -1,0 +1,153 @@
+/* Modal overlay system */
+.spa-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  pointer-events: all;
+}
+
+.spa-modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+}
+
+.spa-modal-container {
+  position: fixed;
+  background: var(--gray-gradient);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  will-change: transform, left, top, width, height;
+}
+
+/* Content wrapper for swipe */
+.spa-modal-content-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  will-change: transform;
+  touch-action: pan-y;
+}
+
+.spa-modal-current-content {
+  flex: 1;
+  min-width: 100%;
+  overflow-y: auto;
+  padding: 80px 40px 40px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Peek previews */
+.spa-modal-prev-peek,
+.spa-modal-next-peek {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 25%;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.spa-modal-prev-peek {
+  left: -25%;
+}
+
+.spa-modal-next-peek {
+  right: -25%;
+}
+
+.spa-modal-prev-peek h3,
+.spa-modal-next-peek h3 {
+  color: white;
+  font-size: 1.5rem;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+/* Close button */
+.spa-modal-close-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--text-primary);
+  user-select: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: var(--shadow-light);
+}
+
+.spa-modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.7);
+  transform: scale(1.05);
+}
+
+.spa-modal-close-btn:active {
+  transform: scale(0.98);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .spa-modal-current-content {
+    padding: 60px 20px 20px;
+  }
+
+  .spa-modal-prev-peek,
+  .spa-modal-next-peek {
+    width: 20%;
+  }
+
+  .spa-modal-prev-peek {
+    left: -20%;
+  }
+
+  .spa-modal-next-peek {
+    right: -20%;
+  }
+
+  .spa-modal-prev-peek h3,
+  .spa-modal-next-peek h3 {
+    font-size: 1.2rem;
+  }
+
+  .spa-modal-close-btn {
+    width: 44px;
+    height: 44px;
+    top: 12px;
+    right: 12px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .spa-modal-container,
+  .spa-modal-backdrop,
+  .spa-modal-content-wrapper {
+    transition: none !important;
+  }
+}
