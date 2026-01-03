@@ -44,6 +44,35 @@ class ViewTransitionsManager {
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, 'text/html');
 
+                // Update head - replace all link and script tags
+                const oldLinks = document.head.querySelectorAll('link[rel="stylesheet"]');
+                const newLinks = doc.head.querySelectorAll('link[rel="stylesheet"]');
+
+                // Remove old stylesheet links
+                oldLinks.forEach(link => link.remove());
+
+                // Add new stylesheet links
+                newLinks.forEach(link => {
+                    document.head.appendChild(link.cloneNode(true));
+                });
+
+                // Update scripts in head (preserve existing scripts, add new ones)
+                const oldScripts = Array.from(document.head.querySelectorAll('script'));
+                const newScripts = Array.from(doc.head.querySelectorAll('script'));
+
+                newScripts.forEach(newScript => {
+                    const exists = oldScripts.some(oldScript =>
+                        oldScript.src === newScript.src
+                    );
+
+                    if (!exists && newScript.src) {
+                        const scriptElement = document.createElement('script');
+                        scriptElement.src = newScript.src;
+                        scriptElement.defer = true;
+                        document.head.appendChild(scriptElement);
+                    }
+                });
+
                 // Update body
                 document.body.innerHTML = doc.body.innerHTML;
 
