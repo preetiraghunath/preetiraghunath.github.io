@@ -15,15 +15,20 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   opacity: 0;
 }
 
 .spa-modal-container {
   position: fixed;
-  background: var(--gray-gradient);
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(180, 190, 210, 0.5) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(200, 210, 225, 0.4) 0%, transparent 50%),
+    linear-gradient(135deg, #b8bcc5 0%, #cdd1d9 20%, #c0c5cf 40%, #d5d9e2 60%, #c8cdd6 80%, #bcc1ca 100%);
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-heavy);
   will-change: transform, left, top, width, height;
 }
 
@@ -55,8 +60,9 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, rgba(220, 225, 235, 0.6), rgba(200, 205, 215, 0.4));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,10 +74,11 @@
   user-select: none;
   transition: background 0.2s ease, transform 0.2s ease;
   box-shadow: var(--shadow-light);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .spa-modal-close-btn:hover {
-  background: rgba(255, 255, 255, 0.7);
+  background: linear-gradient(135deg, rgba(235, 238, 245, 0.7), rgba(215, 220, 230, 0.5));
   transform: scale(1.05);
 }
 
@@ -87,9 +94,10 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: none;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, rgba(220, 225, 235, 0.6), rgba(200, 205, 215, 0.4));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,7 +112,7 @@
 }
 
 .spa-modal-nav-arrow:hover {
-  background: rgba(255, 255, 255, 0.8);
+  background: linear-gradient(135deg, rgba(235, 238, 245, 0.7), rgba(215, 220, 230, 0.5));
   transform: translateY(-50%) scale(1.1);
 }
 
