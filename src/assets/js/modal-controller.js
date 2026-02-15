@@ -35,7 +35,7 @@ export class ModalController {
     // Render content
     this.renderContent(content, route);
 
-    // Animate to full screen
+    // Animate to centered position
     await this.animateOpen();
 
     this.isOpen = true;
@@ -66,10 +66,10 @@ export class ModalController {
       <div class="spa-modal-backdrop"></div>
       <div class="spa-modal-container">
         <div class="spa-modal-close-btn">&times;</div>
+        <button class="spa-modal-nav-arrow spa-modal-nav-prev" aria-label="Previous role">&#8249;</button>
+        <button class="spa-modal-nav-arrow spa-modal-nav-next" aria-label="Next role">&#8250;</button>
         <div class="spa-modal-content-wrapper">
-          <div class="spa-modal-prev-peek"></div>
           <div class="spa-modal-current-content"></div>
-          <div class="spa-modal-next-peek"></div>
         </div>
       </div>
     `;
@@ -78,6 +78,8 @@ export class ModalController {
 
   positionModalAtOrigin(rect) {
     const container = this.modal.querySelector('.spa-modal-container');
+    const contentWrapper = this.modal.querySelector('.spa-modal-content-wrapper');
+
     container.style.position = 'fixed';
     container.style.left = rect.left + 'px';
     container.style.top = rect.top + 'px';
@@ -85,28 +87,44 @@ export class ModalController {
     container.style.height = rect.height + 'px';
     container.style.transform = 'scale(1)';
     container.style.borderRadius = '16px';
+
+    // Hide content during animation to prevent visual glitches
+    contentWrapper.style.visibility = 'hidden';
+    contentWrapper.style.transform = 'translateX(0)';
+    contentWrapper.style.transition = 'none';
   }
 
   async animateOpen() {
     return new Promise(resolve => {
       const container = this.modal.querySelector('.spa-modal-container');
       const backdrop = this.modal.querySelector('.spa-modal-backdrop');
+      const contentWrapper = this.modal.querySelector('.spa-modal-content-wrapper');
+
+      // Calculate centered modal dimensions
+      const maxWidth = Math.min(1000, window.innerWidth * 0.9);
+      const maxHeight = window.innerHeight * 0.85;
+      const left = (window.innerWidth - maxWidth) / 2;
+      const top = (window.innerHeight - maxHeight) / 2;
 
       // Add transition
       container.style.transition = `all ${CONFIG.animation.modalOpenDuration}ms cubic-bezier(0.4, 0, 0.2, 1)`;
       backdrop.style.transition = `opacity ${CONFIG.animation.modalOpenDuration}ms ease`;
 
-      // Trigger animation
+      // Trigger animation to centered position
       requestAnimationFrame(() => {
-        container.style.left = '0';
-        container.style.top = '0';
-        container.style.width = '100vw';
-        container.style.height = '100vh';
-        container.style.borderRadius = '0';
+        container.style.left = left + 'px';
+        container.style.top = top + 'px';
+        container.style.width = maxWidth + 'px';
+        container.style.height = maxHeight + 'px';
+        container.style.borderRadius = '16px';
         backdrop.style.opacity = '1';
       });
 
-      setTimeout(resolve, CONFIG.animation.modalOpenDuration);
+      // Show content after animation completes
+      setTimeout(() => {
+        contentWrapper.style.visibility = 'visible';
+        resolve();
+      }, CONFIG.animation.modalOpenDuration);
     });
   }
 
@@ -114,6 +132,10 @@ export class ModalController {
     return new Promise(resolve => {
       const container = this.modal.querySelector('.spa-modal-container');
       const backdrop = this.modal.querySelector('.spa-modal-backdrop');
+      const contentWrapper = this.modal.querySelector('.spa-modal-content-wrapper');
+
+      // Hide content immediately so it doesn't squish during shrink
+      contentWrapper.style.visibility = 'hidden';
 
       container.style.transition = `all ${CONFIG.animation.modalCloseDuration}ms cubic-bezier(0.4, 0, 0.2, 1)`;
       backdrop.style.transition = `opacity ${CONFIG.animation.modalCloseDuration}ms ease`;
@@ -141,28 +163,8 @@ export class ModalController {
     const currentContent = this.modal.querySelector('.spa-modal-current-content');
     currentContent.innerHTML = content.content;
 
-    // Render peek previews
-    this.renderPeekPreviews(route);
-
     // Update title
     document.title = content.title;
-  }
-
-  renderPeekPreviews(currentRoute) {
-    const { prev, next } = this.router.getAdjacentRoutes(currentRoute);
-
-    const prevPeek = this.modal.querySelector('.spa-modal-prev-peek');
-    const nextPeek = this.modal.querySelector('.spa-modal-next-peek');
-
-    if (prev) {
-      prevPeek.innerHTML = `<h3>${prev.title}</h3>`;
-      prevPeek.dataset.route = prev.path;
-    }
-
-    if (next) {
-      nextPeek.innerHTML = `<h3>${next.title}</h3>`;
-      nextPeek.dataset.route = next.path;
-    }
   }
 
   async switchContent(newRoute, direction) {

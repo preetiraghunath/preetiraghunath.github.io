@@ -34,9 +34,11 @@ export class ContentManager {
   }
 
   async fetchAndParse(route) {
-    const response = await fetch(route);
+    // Ensure route ends with / for proper fetch
+    const fetchUrl = route.endsWith('/') ? route : route + '/';
+    const response = await fetch(fetchUrl);
     if (!response.ok) {
-      throw new Error(`Failed to fetch ${route}: ${response.status}`);
+      throw new Error(`Failed to fetch ${fetchUrl}: ${response.status}`);
     }
 
     const html = await response.text();

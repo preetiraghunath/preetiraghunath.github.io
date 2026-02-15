@@ -27,14 +27,22 @@ class PortfolioApp {
     // Set up tile click handlers
     this.setupTileHandlers();
 
-    // Handle initial route if not home
+      // Handle initial route if not home
     const initialPath = window.location.pathname;
     if (!this.router.isHomePage(initialPath)) {
-      // Direct navigation to role page
+      // Direct navigation to role page - try to find tile
       const tile = this.findTileForRoute(initialPath);
       if (tile) {
         await this.modalController.open(initialPath, tile);
+        history.replaceState({ path: initialPath }, '', initialPath);
+        this.router.currentRoute = initialPath;
         this.initTouchController();
+      } else {
+        // No tile found (e.g. refreshed on a role page) - redirect to home and open modal
+        history.replaceState({ path: CONFIG.routes.HOME }, '', CONFIG.routes.HOME);
+        this.router.currentRoute = CONFIG.routes.HOME;
+        // Wait for home page to be available, then navigate
+        window.location.replace(CONFIG.routes.HOME);
       }
     }
   }
@@ -52,7 +60,10 @@ class PortfolioApp {
 
   async openRole(route, originElement) {
     await this.modalController.open(route, originElement);
-    this.router.navigate(route);
+    // Update URL and router state directly without triggering routechange
+    // (which would call switchContent and cause a redundant slide animation)
+    history.pushState({ path: route }, '', route);
+    this.router.currentRoute = route;
     this.initTouchController();
   }
 
@@ -76,6 +87,16 @@ class PortfolioApp {
         closeBtn.addEventListener('click', () => this.closeRole());
       }
 
+      // Set up navigation arrows
+      const prevBtn = this.modalController.modal.querySelector('.spa-modal-nav-prev');
+      const nextBtn = this.modalController.modal.querySelector('.spa-modal-nav-next');
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => this.navigateRole('prev'));
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => this.navigateRole('next'));
+      }
+
       // Set up keyboard shortcuts
       this.setupKeyboardShortcuts();
     }
@@ -88,17 +109,9 @@ class PortfolioApp {
       if (e.key === 'Escape') {
         this.closeRole();
       } else if (e.key === 'ArrowLeft') {
-        const { prev } = this.router.getAdjacentRoutes(this.router.currentRoute);
-        if (prev) {
-          this.modalController.switchContent(prev.path, 'right');
-          this.router.navigate(prev.path);
-        }
+        this.navigateRole('prev');
       } else if (e.key === 'ArrowRight') {
-        const { next } = this.router.getAdjacentRoutes(this.router.currentRoute);
-        if (next) {
-          this.modalController.switchContent(next.path, 'left');
-          this.router.navigate(next.path);
-        }
+        this.navigateRole('next');
       }
     };
 
@@ -111,10 +124,23 @@ class PortfolioApp {
     document.addEventListener('keydown', keyHandler);
   }
 
+  async navigateRole(direction) {
+    const adjacent = this.router.getAdjacentRoutes(this.router.currentRoute);
+    const target = direction === 'prev' ? adjacent.prev : adjacent.next;
+    if (target) {
+      const slideDir = direction === 'prev' ? 'right' : 'left';
+      await this.modalController.switchContent(target.path, slideDir);
+      history.pushState({ path: target.path }, '', target.path);
+      this.router.currentRoute = target.path;
+    }
+  }
+
   async closeRole() {
     const targetTile = this.findTileForRoute(this.router.currentRoute);
     await this.modalController.close(targetTile);
-    this.router.navigate(CONFIG.routes.HOME);
+    // Update URL directly without triggering routechange
+    history.pushState({ path: CONFIG.routes.HOME }, '', CONFIG.routes.HOME);
+    this.router.currentRoute = CONFIG.routes.HOME;
 
     // Clean up
     if (this.touchController) {
