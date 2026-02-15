@@ -19,9 +19,8 @@ export class TouchController {
   init(modalElement) {
     this.modal = modalElement;
     this.contentWrapper = modalElement.querySelector('.spa-modal-content-wrapper');
+    this.scrollableContent = modalElement.querySelector('.spa-modal-current-content');
     this.backdrop = modalElement.querySelector('.spa-modal-backdrop');
-    this.prevPeek = modalElement.querySelector('.spa-modal-prev-peek');
-    this.nextPeek = modalElement.querySelector('.spa-modal-next-peek');
 
     // Bind methods
     this.boundTouchStart = this.onTouchStart.bind(this);
@@ -37,8 +36,11 @@ export class TouchController {
   onTouchStart(e) {
     this.touchStartX = e.touches[0].clientX;
     this.touchStartY = e.touches[0].clientY;
+    this.currentX = this.touchStartX;
+    this.currentY = this.touchStartY;
     this.startTime = Date.now();
     this.isDragging = true;
+    this.scrollTopAtStart = this.scrollableContent.scrollTop;
 
     // Remove transitions for smooth dragging
     this.contentWrapper.style.transition = 'none';
@@ -64,11 +66,8 @@ export class TouchController {
 
       // Transform content wrapper
       this.contentWrapper.style.transform = `translateX(${dampedDelta}px)`;
-
-      // Show/hide peek previews based on direction
-      this.updatePeekVisibility(deltaX);
-    } else if (deltaY > 0) {
-      // Vertical down swipe
+    } else if (deltaY > 0 && this.scrollableContent.scrollTop <= 0) {
+      // Vertical down swipe - only when content is scrolled to top
       e.preventDefault();
 
       const dampedDelta = deltaY * CONFIG.touch.dampingFactor;
@@ -107,8 +106,9 @@ export class TouchController {
         this.resetPosition();
       }
     } else {
-      // Vertical swipe
-      if (deltaY > CONFIG.touch.verticalThreshold || velocityY > CONFIG.touch.swipeVelocity) {
+      // Vertical swipe - only close if content was at scroll top when gesture started
+      if (this.scrollTopAtStart <= 0 && deltaY > 0 &&
+          (deltaY > CONFIG.touch.verticalThreshold || velocityY > CONFIG.touch.swipeVelocity)) {
         this.closeModal();
       } else {
         // Reset position
@@ -120,22 +120,6 @@ export class TouchController {
   resetPosition() {
     this.contentWrapper.style.transform = 'translateX(0) translateY(0)';
     this.backdrop.style.opacity = '1';
-    this.prevPeek.style.opacity = '0';
-    this.nextPeek.style.opacity = '0';
-  }
-
-  updatePeekVisibility(deltaX) {
-    if (deltaX > 0) {
-      // Swiping right, show prev
-      const opacity = Math.min(1, deltaX / 100);
-      this.prevPeek.style.opacity = opacity;
-      this.nextPeek.style.opacity = 0;
-    } else {
-      // Swiping left, show next
-      const opacity = Math.min(1, Math.abs(deltaX) / 100);
-      this.nextPeek.style.opacity = opacity;
-      this.prevPeek.style.opacity = 0;
-    }
   }
 
   async navigateNext() {
@@ -175,7 +159,5 @@ export class TouchController {
     this.modal = null;
     this.contentWrapper = null;
     this.backdrop = null;
-    this.prevPeek = null;
-    this.nextPeek = null;
   }
 }
