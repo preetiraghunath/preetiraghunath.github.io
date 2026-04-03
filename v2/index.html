@@ -3,50 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Preeti Raghunath</title>
+    <title>Preeti Raghunath</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background: #f5f4f0;
+            color: #2c2c2c;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    <!-- Base CSS -->
-    <link rel="stylesheet" href="/v2/assets/css/style.css">
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 480px;
+        }
 
-    <!-- Page-specific CSS -->
-    
-    <link rel="stylesheet" href="/v2/assets/css/homepage.css">
-    <link rel="stylesheet" href="/v2/assets/css/tiles.css">
-    
+        h1 {
+            font-size: 2rem;
+            font-weight: normal;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.5rem;
+        }
 
-    <!-- Modal CSS -->
-    <link rel="stylesheet" href="/v2/assets/css/modal.css">
+        .divider {
+            width: 40px;
+            height: 1px;
+            background: #999;
+            margin: 1.5rem auto;
+        }
 
-    <!-- SPA JavaScript Module -->
-    <script type="module" src="/v2/assets/js/app.js"></script>
+        p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #666;
+        }
+
+        a {
+            color: #2c2c2c;
+        }
+    </style>
 </head>
 <body>
-    
-
-<div class="homepage-container">
-    <div class="hero-section">
-        <h1 class="hero-name">Preeti Raghunath</h1>
-        <p class="hero-subtitle">Academic and Research Consultant</p>
+    <div class="container">
+        <h1>Preeti Raghunath</h1>
+        <div class="divider"></div>
+        <p>This page is being redesigned.<br>
+        In the meantime, visit the <a href="/">current site</a>.</p>
     </div>
-
-    <div class="tiles-container">
-        <a href="/v2/researcher" class="role-tile">
-            <h2>Academic Researcher</h2>
-            <p>Teaching, research, and academic contributions</p>
-        </a>
-
-        <a href="/v2/consultant" class="role-tile">
-            <h2>Research Consultant</h2>
-            <p>Advisory and consulting services</p>
-        </a>
-    </div>
-</div>
-
-
 </body>
 </html>
