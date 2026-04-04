@@ -1,0 +1,21 @@
+<header class="site-header">
+  <div class="container">
+    <a href="/v2/" class="site-name">{{ site.name }}</a>
+
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul>
+        {% for item in site.nav %}
+          <li>
+            <a href="{{ item.url }}" {% if page.url == item.url %}class="active"{% endif %}>
+              {{ item.label }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

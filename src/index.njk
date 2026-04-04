@@ -1,55 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home — Preeti Raghunath</title>
-  <meta name="description" content="Preeti Raghunath — Academic and Research Consultant, Lecturer in Digital Media and Society at the University of Sheffield.">
+---
+layout: layouts/base.njk
+title: Home
+description: Preeti Raghunath — Academic and Research Consultant, Lecturer in Digital Media and Society at the University of Sheffield.
+---
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="/v2/assets/css/style.css">
-</head>
-<body>
-  <header class="site-header">
-  <div class="container">
-    <a href="/v2/" class="site-name">Preeti Raghunath</a>
-
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-
-    <nav class="site-nav" aria-label="Main navigation">
-      <ul>
-        
-          <li>
-            <a href="/v2/" >
-              Home
-            </a>
-          </li>
-        
-          <li>
-            <a href="/v2/research/" >
-              Research
-            </a>
-          </li>
-        
-          <li>
-            <a href="/v2/consulting/" >
-              Consulting
-            </a>
-          </li>
-        
-      </ul>
-    </nav>
-  </div>
-</header>
-
-
-  <main>
-    
 <section class="hero">
   <div class="container">
     <div class="hero-inner">
@@ -125,27 +79,8 @@
       <h2>Contact</h2>
     </div>
     <div class="contact-links">
-      <a href="mailto:p.raghunath@sheffield.ac.uk">p.raghunath@sheffield.ac.uk</a>
-      <a href="mailto:preetimalaraghunath@gmail.com">preetimalaraghunath@gmail.com</a>
+      <a href="mailto:{{ site.email.work }}">{{ site.email.work }}</a>
+      <a href="mailto:{{ site.email.personal }}">{{ site.email.personal }}</a>
     </div>
   </div>
 </section>
-
-  </main>
-
-  <footer class="site-footer">
-  <div class="container">
-    <div class="footer-inner">
-      <p class="footer-name">Preeti Raghunath</p>
-      <div class="footer-contact">
-        <a href="mailto:p.raghunath@sheffield.ac.uk">p.raghunath@sheffield.ac.uk</a>
-        <a href="mailto:preetimalaraghunath@gmail.com">preetimalaraghunath@gmail.com</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-
-  <script src="/v2/assets/js/nav.js"></script>
-</body>
-</html>
