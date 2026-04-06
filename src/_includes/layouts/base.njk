@@ -11,8 +11,8 @@
   <meta property="og:site_name" content="{{ site.name }}">
   <meta property="og:title" content="{% if title %}{{ title }} — {% endif %}{{ site.name }}">
   <meta property="og:description" content="{{ description or site.title }}">
-  <meta property="og:url" content="{{ site.url }}/v2/{% if page.url != '/v2/' %}{{ page.url }}{% endif %}">
-  <meta property="og:image" content="{{ site.url }}/v2/assets/images/profile.jpg">
+  <meta property="og:url" content="{{ site.url }}/{% if page.url != '/' %}{{ page.url }}{% endif %}">
+  <meta property="og:image" content="{{ site.url }}/assets/images/profile.jpg">
 
   <!-- Person structured data -->
   <script type="application/ld+json">
@@ -25,8 +25,8 @@
       "@type": "Organization",
       "name": "{{ site.institution }}"
     },
-    "url": "{{ site.url }}/v2/",
-    "image": "{{ site.url }}/v2/assets/images/profile.jpg",
+    "url": "{{ site.url }}/",
+    "image": "{{ site.url }}/assets/images/profile.jpg",
     "email": "{{ site.email.work }}",
     "sameAs": [
       "https://sheffield.ac.uk/spir/people/academic/preeti-raghunath"
@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/v2/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
   {% include "components/nav.njk" %}
@@ -49,6 +49,6 @@
 
   {% include "components/footer.njk" %}
 
-  <script src="/v2/assets/js/nav.js"></script>
+  <script src="/assets/js/nav.js"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 module.exports = function(eleventyConfig) {
   // Pass through assets (CSS, images)
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/CNAME");
 
   // Dev server: bind to all interfaces so Tailscale can reach it
   eleventyConfig.setServerOptions({
@@ -8,10 +9,9 @@ module.exports = function(eleventyConfig) {
   });
 
   return {
-    pathPrefix: "/v2/",  // CRITICAL: for subdirectory deployment
     dir: {
       input: "src",
-      output: "v2",
+      output: "_site",
       includes: "_includes",
       data: "_data"
     },

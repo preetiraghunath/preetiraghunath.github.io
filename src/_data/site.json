@@ -9,8 +9,8 @@
     "personal": "preetiraghunath.work@gmail.com"
   },
   "nav": [
-    { "label": "Home", "url": "/v2/" },
-    { "label": "Research", "url": "/v2/research/" },
-    { "label": "Consulting", "url": "/v2/consulting/" }
+    { "label": "Home", "url": "/" },
+    { "label": "Research", "url": "/research/" },
+    { "label": "Consulting", "url": "/consulting/" }
   ]
 }
