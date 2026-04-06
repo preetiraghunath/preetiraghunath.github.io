@@ -2,14 +2,14 @@
    Design Tokens
    ============================================================ */
 :root {
-  --color-bg: #c9b8c8;
-  --color-surface: #d4c5d3;
-  --color-surface-dark: #bfaebe;
+  --color-bg: #d4d4e8;
+  --color-surface: #eaeaf5;
+  --color-surface-dark: #c8c8dc;
   --color-accent: #5a3e6b;
   --color-accent-dark: #3d2a4a;
-  --color-text: #1e1228;
-  --color-text-muted: #5a4d62;
-  --color-border: #b8a5b7;
+  --color-text: #1e2240;
+  --color-text-muted: #4a5470;
+  --color-border: #c0c0d8;
 
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
@@ -42,7 +42,8 @@ body {
   font-size: 1rem;
   line-height: 1.75;
   color: var(--color-text);
-  background-color: var(--color-bg);
+  background: linear-gradient(135deg, #e8e8f5 0%, #d4d4e8 50%, #c8c8dc 100%);
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -108,7 +109,7 @@ h3 { font-size: 1.25rem; font-weight: 500; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: rgba(201, 184, 200, 0.92);
+  background-color: rgba(232, 232, 245, 0.92);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
