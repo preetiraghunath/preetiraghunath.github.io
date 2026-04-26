@@ -1,4 +1,10 @@
+const markdownIt = require("markdown-it");
+const md = markdownIt();
+
 module.exports = function(eleventyConfig) {
+  // Render inline Markdown (italics, links) — used for citations and bio paragraphs
+  eleventyConfig.addFilter("md", (str) => str ? md.renderInline(str) : "");
+
   // Pass through assets (CSS, images)
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/CNAME");

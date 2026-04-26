@@ -1,0 +1,35 @@
+{
+  "bio": [
+    "I am a [Lecturer](https://sheffield.ac.uk/spir/people/academic/preeti-raghunath) in Digital Media and Society at the University of Sheffield, UK. Over the past decade, I have traversed academic landscapes in India, Malaysia and the UK. During this time, my theoretical and empirical research has focused on media and technology policies and their making — taking a long view as well as centring lived experiences.",
+    "My teaching practice has involved teaching, programme direction and research supervision across UG, PG and doctoral programmes, with an interdisciplinary approach to communication and media. I am driven by curiosity, value learning and growth, and immensely enjoy partaking in the enterprise of knowledge.",
+    "I enjoy reading fiction and nonfiction, writing creative nonfiction, and watching films, theatre and live performances. I serve as a Trustee of [Utopia Theatre](https://utopiatheatre.co.uk) at Sheffield, UK."
+  ],
+  "workTiles": [
+    {
+      "title": "Academic Research",
+      "description": "Academic research on digital media policies, deliberative policymaking, AI-data infrastructures and safety across countries, especially in the Global South.",
+      "url": "/research/",
+      "linkText": "View research →"
+    },
+    {
+      "title": "Consulting",
+      "description": "Research consulting offering expertise in policies for emerging technologies, AI safety and assurance, and Digital Public Infrastructure (DPI).",
+      "url": "/consulting/",
+      "linkText": "View consulting →"
+    }
+  ],
+  "currentProjects": [
+    {
+      "title": "Negotiating Sustainable AI: India and Mexico",
+      "description": "Principal Investigator on a Grantham Amplification Fund project examining the socio-ecological impacts of AI infrastructures through policies and lived experiences in India and Mexico."
+    },
+    {
+      "title": "Weaving an AI Safety Net for UK and Canada",
+      "description": "Project Lead of a UKRI-SSHRC Knowledge Synthesis Grant project examining AI safety policy and governance across the UK and Canada."
+    },
+    {
+      "title": "Global Approaches to AI and Data: Theories and Practices",
+      "description": "Monograph under contract with Bristol University Press."
+    }
+  ]
+}

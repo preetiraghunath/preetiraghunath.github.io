@@ -18,7 +18,7 @@ description: Research consulting services by Preeti Raghunath — policy, media,
       <h2>What I Offer</h2>
     </div>
     <div class="bio">
-      <p>I work with international organisations, academic institutions, and civil society bodies on research and advisory projects at the intersection of media, technology, and policy. Drawing on over a decade of academic research and fieldwork across India, Southeast Asia, and the UK, I bring rigorous analytical expertise to questions of AI governance, data policy, and gender and technology. Past engagements have included multi-country research projects with the United Nations University and UN Women, as well as country-level expert advisory roles on EU-funded research programmes.</p>
+      <p>{{ consulting.intro }}</p>
     </div>
   </div>
 </section>
@@ -29,14 +29,12 @@ description: Research consulting services by Preeti Raghunath — policy, media,
       <h2>Areas of Expertise</h2>
     </div>
     <div class="expertise-grid">
-      <div class="expertise-item">
-        <h3>Media &amp; Technology Policy</h3>
-        <p>Policy analysis, regulatory frameworks, and their societal implications.</p>
-      </div>
-      <div class="expertise-item">
-        <h3>AI Safety and Assurance</h3>
-        <p>AI safety governance, assurance frameworks, and emerging regulatory approaches to responsible AI.</p>
-      </div>
+      {% for item in consulting.expertise %}
+        <div class="expertise-item">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </div>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -47,22 +45,12 @@ description: Research consulting services by Preeti Raghunath — policy, media,
       <h2>Previous Engagements</h2>
     </div>
     <div class="item-list">
-      <div class="item">
-        <p class="item-title">Digital Maturity and Sustainability</p>
-        <p class="item-meta">United Nations University, Macau / Huawei · 2024–2025</p>
-      </div>
-      <div class="item">
-        <p class="item-title">Artificial Intelligence and the Women, Peace and Security Agenda in South-East Asia</p>
-        <p class="item-meta">UN Women &amp; United Nations University, Macau · 2022–2023</p>
-      </div>
-      <div class="item">
-        <p class="item-title">Gender-sensitive AI Policy in Southeast Asia</p>
-        <p class="item-meta">United Nations University, Macau / ITU &amp; UN Women · 2022</p>
-      </div>
-      <div class="item">
-        <p class="item-title">Country Expert, India — BIT-ACT Project</p>
-        <p class="item-meta">University of Bologna (ERC-funded) · 2021–2023</p>
-      </div>
+      {% for engagement in consulting.engagements %}
+        <div class="item">
+          <p class="item-title">{{ engagement.title }}</p>
+          <p class="item-meta">{{ engagement.meta }}</p>
+        </div>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -73,7 +61,7 @@ description: Research consulting services by Preeti Raghunath — policy, media,
       <h2>Get in Touch</h2>
     </div>
     <div class="bio">
-      <p>If you are interested in working together, please reach out by email.</p>
+      <p>{{ consulting.contactText }}</p>
     </div>
     <div class="contact-links" style="margin-top: 1rem;">
       <a href="mailto:{{ site.email.work }}">{{ site.email.work }}</a>

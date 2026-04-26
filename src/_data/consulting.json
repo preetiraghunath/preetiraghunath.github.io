@@ -1,0 +1,32 @@
+{
+  "intro": "I work with international organisations, academic institutions, and civil society bodies on research and advisory projects at the intersection of media, technology, and policy. Drawing on over a decade of academic research and fieldwork across India, Southeast Asia, and the UK, I bring rigorous analytical expertise to questions of AI governance, data policy, and gender and technology. Past engagements have included multi-country research projects with the United Nations University and UN Women, as well as country-level expert advisory roles on EU-funded research programmes.",
+  "expertise": [
+    {
+      "title": "Media & Technology Policy",
+      "description": "Policy analysis, regulatory frameworks, and their societal implications."
+    },
+    {
+      "title": "AI Safety and Assurance",
+      "description": "AI safety governance, assurance frameworks, and emerging regulatory approaches to responsible AI."
+    }
+  ],
+  "engagements": [
+    {
+      "title": "Digital Maturity and Sustainability",
+      "meta": "United Nations University, Macau / Huawei · 2024–2025"
+    },
+    {
+      "title": "Artificial Intelligence and the Women, Peace and Security Agenda in South-East Asia",
+      "meta": "UN Women & United Nations University, Macau · 2022–2023"
+    },
+    {
+      "title": "Gender-sensitive AI Policy in Southeast Asia",
+      "meta": "United Nations University, Macau / ITU & UN Women · 2022"
+    },
+    {
+      "title": "Country Expert, India — BIT-ACT Project",
+      "meta": "University of Bologna (ERC-funded) · 2021–2023"
+    }
+  ],
+  "contactText": "If you are interested in working together, please reach out by email."
+}

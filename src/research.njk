@@ -18,11 +18,9 @@ description: Research areas, publications, and projects by Preeti Raghunath.
       <h2>Research Areas</h2>
     </div>
     <div class="tag-list">
-      <span class="tag">Media and Technology Policy</span>
-      <span class="tag">AI Policy and Safety</span>
-      <span class="tag">Global Governance of Technologies</span>
-      <span class="tag">Global South</span>
-      <span class="tag">Deliberative Policymaking</span>
+      {% for area in research.researchAreas %}
+        <span class="tag">{{ area }}</span>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -33,26 +31,12 @@ description: Research areas, publications, and projects by Preeti Raghunath.
       <h2>Recent Publications</h2>
     </div>
     <div class="item-list">
-      <div class="item">
-        <p class="item-title">Raghunath, P. (2026). Digital Public Infrastructure in India: A Deliberative Policy Ecology Approach. <em>International Journal of Communication</em>.</p>
-        <p class="item-meta">Journal Article</p>
-      </div>
-      <div class="item">
-        <p class="item-title">Raghunath, P. (2025). "Hated Speech". In Mattoni (Eds.) <em>Handbook of Progressive Politics</em>. Edward Elgar.</p>
-        <p class="item-meta">Book Chapter</p>
-      </div>
-      <div class="item">
-        <p class="item-title">Jaimee, S., Raghunath, P. &amp; Guariso, D. (2025). <em>Unpacking the Interrelationships between the Global Digitalization Index and Human Development</em>. United Nations University.</p>
-        <p class="item-meta">Research Report</p>
-      </div>
-      <div class="item">
-        <p class="item-title">Raghunath, P. (2024). Critical Data Governance: A Southern Standpoint to the study and practice of data. <em>Technology and Regulation</em>, 2024, 37–46.</p>
-        <p class="item-meta">Journal Article</p>
-      </div>
-      <div class="item">
-        <p class="item-title">Raghunath, P. &amp; Rahman, A. (2024). Opening up the Black Box of Communication Governance in South Asia: Critical Policy Ethnography as Methodology. In Padovani et al. (Eds.) <em>Global Communication Governance at the Crossroads</em>. Palgrave Macmillan.</p>
-        <p class="item-meta">Book Chapter</p>
-      </div>
+      {% for pub in research.publications %}
+        <div class="item">
+          <p class="item-title">{{ pub.citation | md | safe }}</p>
+          <p class="item-meta">{{ pub.type }}</p>
+        </div>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -63,18 +47,18 @@ description: Research areas, publications, and projects by Preeti Raghunath.
       <h2>Monographs</h2>
     </div>
     <div class="item-list">
-      <div class="item">
-        <p class="item-title">Global Approaches to AI and Data: Theories and Practices</p>
-        <p class="item-meta">Bristol University Press · Forthcoming</p>
-      </div>
-      <div class="item">
-        <p class="item-title">
-          <a href="https://link.springer.com/book/10.1007/978-981-15-5629-6" target="_blank" rel="noopener">
-            Community Radio Policies in South Asia: A Deliberative Policy Ecology Approach
-          </a>
-        </p>
-        <p class="item-meta">Palgrave Macmillan · 2020</p>
-      </div>
+      {% for book in research.monographs %}
+        <div class="item">
+          <p class="item-title">
+            {% if book.url %}
+              <a href="{{ book.url }}" target="_blank" rel="noopener">{{ book.title }}</a>
+            {% else %}
+              {{ book.title }}
+            {% endif %}
+          </p>
+          <p class="item-meta">{{ book.meta }}</p>
+        </div>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -85,22 +69,12 @@ description: Research areas, publications, and projects by Preeti Raghunath.
       <h2>Edited Collections</h2>
     </div>
     <div class="item-list">
-      <div class="item">
-        <p class="item-title">A Media Anthropology of India</p>
-        <p class="item-meta">Raghunath, P. and Narasimhan, H. (Eds.) · Routledge · In production</p>
-      </div>
-      <div class="item">
-        <p class="item-title">Critical Political Economy of AI: Southern Experiences</p>
-        <p class="item-meta">Raghunath, P. (Ed.) · Palgrave Macmillan · 2026</p>
-      </div>
-      <div class="item">
-        <p class="item-title">Governing Technologies</p>
-        <p class="item-meta">Bächtold, S.; Raghunath, P.; Lim, Joanne BY. (Eds.) · Journal of Digital Media and Policy, 15(3) · 2024</p>
-      </div>
-      <div class="item">
-        <p class="item-title">(Re)iterations, Transgressions, Recognition: Politics and Practices of Media Policies in South Asia</p>
-        <p class="item-meta">Raghunath, P. and Koshy, S. (Eds.) · Journal of Digital Media and Policy, 13(1) · 2022</p>
-      </div>
+      {% for collection in research.editedCollections %}
+        <div class="item">
+          <p class="item-title">{{ collection.title }}</p>
+          <p class="item-meta">{{ collection.meta }}</p>
+        </div>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -111,14 +85,12 @@ description: Research areas, publications, and projects by Preeti Raghunath.
       <h2>Current Projects</h2>
     </div>
     <div>
-      <div class="project-card">
-        <h3>Negotiating Sustainable AI: India and Mexico</h3>
-        <p>Principal Investigator on a Grantham Amplification Fund project examining the socio-ecological impacts of AI infrastructures through policies and lived experiences in India and Mexico.</p>
-      </div>
-      <div class="project-card">
-        <h3>Weaving an AI Safety Net for UK and Canada</h3>
-        <p>Project Lead of a UKRI-SSHRC Knowledge Synthesis Grant project examining AI safety governance across the UK and Canada.</p>
-      </div>
+      {% for project in research.currentProjects %}
+        <div class="project-card">
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+        </div>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -129,18 +101,12 @@ description: Research areas, publications, and projects by Preeti Raghunath.
       <h2>Editorial Roles</h2>
     </div>
     <div class="item-list">
-      <div class="item">
-        <p class="item-title">Palgrave Global Media Policy and Business</p>
-        <p class="item-meta">Co-editor, Book Series</p>
-      </div>
-      <div class="item">
-        <p class="item-title">Critical Policy Studies</p>
-        <p class="item-meta">Editorial Board Member</p>
-      </div>
-      <div class="item">
-        <p class="item-title">Journal of Digital Media and Policy</p>
-        <p class="item-meta">Editorial Board Member</p>
-      </div>
+      {% for role in research.editorialRoles %}
+        <div class="item">
+          <p class="item-title">{{ role.title }}</p>
+          <p class="item-meta">{{ role.role }}</p>
+        </div>
+      {% endfor %}
     </div>
   </div>
 </section>

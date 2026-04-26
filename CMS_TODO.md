@@ -6,19 +6,19 @@ See `CMS_PLAN.md` for the full plan.
 
 ## Status
 
-**Current phase:** Not started
+**Current phase:** Phase 2 — Sveltia CMS admin UI
 
 ---
 
-## Phase 1 — Extract content into data files
+## Phase 1 — Extract content into data files ✓
 
-- [ ] Create `src/_data/home.json` (bio, work tiles, current projects)
-- [ ] Create `src/_data/research.json` (tags, publications, monographs, edited collections, current projects, editorial roles)
-- [ ] Create `src/_data/consulting.json` (expertise, engagements)
-- [ ] Refactor `src/index.njk` to loop over `home` data
-- [ ] Refactor `src/research.njk` to loop over `research` data
-- [ ] Refactor `src/consulting.njk` to loop over `consulting` data
-- [ ] Verify local build output matches original site visually
+- [x] Create `src/_data/home.json` (bio, work tiles, current projects)
+- [x] Create `src/_data/research.json` (tags, publications, monographs, edited collections, current projects, editorial roles)
+- [x] Create `src/_data/consulting.json` (expertise, engagements)
+- [x] Refactor `src/index.njk` to loop over `home` data
+- [x] Refactor `src/research.njk` to loop over `research` data
+- [x] Refactor `src/consulting.njk` to loop over `consulting` data
+- [x] Verify local build output matches original site visually
 
 ## Phase 2 — Sveltia CMS admin UI
 
@@ -43,7 +43,7 @@ See `CMS_PLAN.md` for the full plan.
 
 ## Implementation Notes
 
-_Notes will be added here as work progresses — gotchas, decisions made, things that deviated from the plan._
+**Phase 1 (2026-04-26):** Rich text fields (bio paragraphs, publication citations) use a custom `md` Nunjucks filter backed by `markdown-it`. Stored as inline Markdown strings in JSON; rendered with `{{ value | md | safe }}`. Bio is split into an array of paragraph strings so each renders as a separate `<p>`. Plain text fields (titles, meta, descriptions) use default Nunjucks auto-escaping — no filter needed. Added `markdown-it` as a direct devDependency (was previously only a transitive dep via Eleventy).
 
 ---
 
