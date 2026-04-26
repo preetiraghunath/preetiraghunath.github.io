@@ -30,9 +30,9 @@ See `CMS_PLAN.md` for the full plan.
 ## Phase 3 — GitHub OAuth ✓
 
 - [x] Create GitHub OAuth App (under Preeti's account, callback URL pointing to Netlify function)
-- [x] Deploy `sveltia-cms-auth` to Netlify (https://adorable-chaja-049ad2.netlify.app)
-- [x] Set `GITHUB_CLIENT_ID` + `GITHUB_CLIENT_SECRET` as Netlify env vars
-- [x] Set `base_url` in `config.yml` to the Netlify OAuth proxy URL
+- [x] Deploy `sveltia-cms-auth` to Cloudflare Workers (https://sveltia-cms-auth.preetimalaraghunath-9ec.workers.dev)
+- [x] Set `GITHUB_CLIENT_ID` + `GITHUB_CLIENT_SECRET` as Cloudflare Worker secrets
+- [x] Set `base_url` in `config.yml` to the Cloudflare Worker URL
 - [ ] Test login flow end-to-end at preetiraghunath.com/admin after deploy
 
 ## Phase 4 — Verify CI/CD

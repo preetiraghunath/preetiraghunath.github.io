@@ -2,7 +2,7 @@ backend:
   name: github
   repo: preetiraghunath/preetiraghunath.github.io
   branch: main
-  base_url: https://adorable-chaja-049ad2.netlify.app
+  base_url: https://sveltia-cms-auth.preetimalaraghunath-9ec.workers.dev
 
 media_folder: src/assets/images
 public_folder: /assets/images
