@@ -9,6 +9,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/CNAME");
 
+  // CMS admin — copy as-is, do not template-process
+  eleventyConfig.ignores.add("src/admin/**");
+  eleventyConfig.addPassthroughCopy("src/admin");
+
   // Dev server: bind to all interfaces so Tailscale can reach it
   eleventyConfig.setServerOptions({
     host: "0.0.0.0"

@@ -20,12 +20,12 @@ See `CMS_PLAN.md` for the full plan.
 - [x] Refactor `src/consulting.njk` to loop over `consulting` data
 - [x] Verify local build output matches original site visually
 
-## Phase 2 — Sveltia CMS admin UI
+## Phase 2 — Sveltia CMS admin UI ✓
 
-- [ ] Create `src/admin/index.html`
-- [ ] Create `src/admin/config.yml` with all collections
-- [ ] Add `src/admin/` to Eleventy passthrough in `.eleventy.js`
-- [ ] Verify `/admin` loads correctly on local dev server
+- [x] Create `src/admin/index.html`
+- [x] Create `src/admin/config.yml` with all collections
+- [x] Add `src/admin/` to Eleventy passthrough in `.eleventy.js`
+- [ ] Verify `/admin` loads correctly on local dev server (requires OAuth — test after Phase 3)
 
 ## Phase 3 — GitHub OAuth
 
@@ -42,6 +42,8 @@ See `CMS_PLAN.md` for the full plan.
 ---
 
 ## Implementation Notes
+
+**Phase 2 (2026-04-26):** `src/admin` is excluded from Eleventy template processing via `eleventyConfig.ignores.add("src/admin/**")` and copied raw via `addPassthroughCopy`. Without the ignore, Eleventy would also try to process `admin/index.html` as a Nunjucks template (since `html` is in templateFormats), which would conflict with the passthrough copy. The `config.yml` has a placeholder `base_url` that must be replaced with the Netlify OAuth proxy URL in Phase 3.
 
 **Phase 1 (2026-04-26):** Rich text fields (bio paragraphs, publication citations) use a custom `md` Nunjucks filter backed by `markdown-it`. Stored as inline Markdown strings in JSON; rendered with `{{ value | md | safe }}`. Bio is split into an array of paragraph strings so each renders as a separate `<p>`. Plain text fields (titles, meta, descriptions) use default Nunjucks auto-escaping — no filter needed. Added `markdown-it` as a direct devDependency (was previously only a transitive dep via Eleventy).
 

@@ -1,0 +1,145 @@
+backend:
+  name: github
+  repo: preetiraghunath/preetiraghunath.github.io
+  branch: main
+  base_url: https://YOUR_NETLIFY_OAUTH_SITE.netlify.app  # update in Phase 3
+
+media_folder: src/assets/images
+public_folder: /assets/images
+
+collections:
+
+  - name: home
+    label: Home Page
+    files:
+      - name: home
+        label: Home Page Content
+        file: src/_data/home.json
+        fields:
+          - label: Bio Paragraphs
+            name: bio
+            widget: list
+            summary: "{{fields.paragraph}}"
+            field:
+              label: Paragraph
+              name: paragraph
+              widget: markdown
+              modes: [rich_text]
+              minimal: true
+
+          - label: Work Tiles
+            name: workTiles
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: URL, name: url, widget: string }
+              - { label: Link Text, name: linkText, widget: string }
+
+          - label: Current Projects
+            name: currentProjects
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+
+  - name: research
+    label: Research & Publications
+    files:
+      - name: research
+        label: Research Content
+        file: src/_data/research.json
+        fields:
+          - label: Research Areas
+            name: researchAreas
+            widget: list
+            field:
+              label: Area
+              name: area
+              widget: string
+
+          - label: Recent Publications
+            name: publications
+            widget: list
+            summary: "{{fields.type}}: {{fields.citation}}"
+            fields:
+              - label: Citation
+                name: citation
+                widget: markdown
+                modes: [rich_text]
+                minimal: true
+              - label: Type
+                name: type
+                widget: select
+                options:
+                  - Journal Article
+                  - Book Chapter
+                  - Research Report
+                  - Conference Paper
+                  - Other
+
+          - label: Monographs
+            name: monographs
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Publisher & Year, name: meta, widget: string }
+              - { label: URL (leave blank if forthcoming), name: url, widget: string, required: false }
+
+          - label: Edited Collections
+            name: editedCollections
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Editors, Publisher & Year, name: meta, widget: string }
+
+          - label: Current Projects
+            name: currentProjects
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+
+          - label: Editorial Roles
+            name: editorialRoles
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Publication / Series, name: title, widget: string }
+              - { label: Role, name: role, widget: string }
+
+  - name: consulting
+    label: Consulting
+    files:
+      - name: consulting
+        label: Consulting Content
+        file: src/_data/consulting.json
+        fields:
+          - label: Introduction
+            name: intro
+            widget: text
+
+          - label: Areas of Expertise
+            name: expertise
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+
+          - label: Previous Engagements
+            name: engagements
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Organisation & Year, name: meta, widget: string }
+
+          - label: Contact Section Text
+            name: contactText
+            widget: string
