@@ -1,0 +1,58 @@
+---
+layout: layouts/base.njk
+title: Teaching
+description: Teaching and supervision by Preeti Raghunath — media studies, digital culture, and technology and society.
+---
+
+<section class="page-header">
+  <div class="container">
+    <span class="label">Teaching</span>
+    <h1>Teaching</h1>
+    <p>{{ teaching.intro }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Teaching Philosophy</h2>
+    </div>
+    <div class="bio">
+      <p>{{ teaching.philosophy }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Courses</h2>
+    </div>
+    <div class="item-list">
+      {% for course in teaching.courses %}
+        <div class="item">
+          <p class="item-title">{{ course.title }}</p>
+          <p class="item-meta">{{ course.level }} · {{ course.institution }} · {{ course.years }}</p>
+          {% if course.description %}
+            <p>{{ course.description }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Postgraduate Supervision</h2>
+    </div>
+    <div class="bio">
+      <p>{{ teaching.supervision }}</p>
+    </div>
+    <div class="contact-links" style="margin-top: 1rem;">
+      <a href="mailto:{{ site.email.work }}">{{ site.email.work }}</a>
+      <a href="mailto:{{ site.email.personal }}">{{ site.email.personal }}</a>
+    </div>
+  </div>
+</section>
