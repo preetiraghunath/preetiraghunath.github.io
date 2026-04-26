@@ -1,0 +1,21 @@
+{
+  "intro": "I have taught across undergraduate and postgraduate programmes in media studies, communication, and digital culture. My teaching is informed by my research interests in technology, gender, and society, and draws on a range of interdisciplinary perspectives.",
+  "philosophy": "I approach teaching as a collaborative intellectual endeavour — one that encourages students to engage critically with contemporary questions about media, power, and technology. I aim to create inclusive, discussion-led learning environments that value diverse perspectives and forms of knowledge.",
+  "courses": [
+    {
+      "title": "Media, Technology and Society",
+      "institution": "Placeholder University",
+      "level": "Postgraduate",
+      "years": "2023–2024",
+      "description": "An introduction to the social shaping of technology, platform economies, and the governance of digital media."
+    },
+    {
+      "title": "Gender and Digital Culture",
+      "institution": "Placeholder University",
+      "level": "Undergraduate",
+      "years": "2022–2023",
+      "description": "Explores intersections of gender, identity, and digital life, including online harassment, algorithmic bias, and feminist approaches to technology."
+    }
+  ],
+  "supervision": "I welcome enquiries from prospective postgraduate students working on topics related to media policy, digital governance, AI and society, and gender and technology. Please get in touch by email before making a formal application."
+}

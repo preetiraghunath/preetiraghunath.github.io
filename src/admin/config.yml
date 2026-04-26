@@ -143,3 +143,39 @@ collections:
           - label: Contact Section Text
             name: contactText
             widget: string
+
+  - name: teaching
+    label: Teaching
+    files:
+      - name: teaching
+        label: Teaching Content
+        file: src/_data/teaching.json
+        fields:
+          - label: Introduction
+            name: intro
+            widget: text
+
+          - label: Teaching Philosophy
+            name: philosophy
+            widget: text
+
+          - label: Courses
+            name: courses
+            widget: list
+            summary: "{{fields.title}} — {{fields.institution}}"
+            fields:
+              - { label: Course Title, name: title, widget: string }
+              - { label: Institution, name: institution, widget: string }
+              - label: Level
+                name: level
+                widget: select
+                options:
+                  - Undergraduate
+                  - Postgraduate
+                  - Both
+              - { label: Years, name: years, widget: string }
+              - { label: Description, name: description, widget: text, required: false }
+
+          - label: Postgraduate Supervision
+            name: supervision
+            widget: text
