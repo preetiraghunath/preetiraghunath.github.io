@@ -28,9 +28,9 @@ description: Preeti Raghunath is a Lecturer in Digital Media and Society at the 
       <h2>About</h2>
     </div>
     <div class="bio">
-      <p>I am a <a href="https://sheffield.ac.uk/spir/people/academic/preeti-raghunath">Lecturer</a> in Digital Media and Society at the University of Sheffield, UK. Over the past decade, I have traversed academic landscapes in India, Malaysia and the UK. During this time, my theoretical and empirical research has focused on media and technology policies and their making — taking a long view as well as centring lived experiences.</p>
-      <p>My teaching practice has involved teaching, programme direction and research supervision across UG, PG and doctoral programmes, with an interdisciplinary approach to communication and media. I am driven by curiosity, value learning and growth, and immensely enjoy partaking in the enterprise of knowledge.</p>
-      <p>I enjoy reading fiction and nonfiction, writing creative nonfiction, and watching films, theatre and live performances. I serve as a Trustee of <a href="https://utopiatheatre.co.uk">Utopia Theatre</a> at Sheffield, UK.</p>
+      {% for para in home.bio %}
+        <p>{{ para | md | safe }}</p>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -41,16 +41,13 @@ description: Preeti Raghunath is a Lecturer in Digital Media and Society at the 
       <h2>Work</h2>
     </div>
     <div class="role-cards">
-      <a href="/research/" class="role-card">
-        <h3>Academic Research</h3>
-        <p>Academic research on digital media policies, deliberative policymaking, AI-data infrastructures and safety across countries, especially in the Global South.</p>
-        <span class="card-link">View research →</span>
-      </a>
-      <a href="/consulting/" class="role-card">
-        <h3>Consulting</h3>
-        <p>Research consulting offering expertise in policies for emerging technologies, AI safety and assurance, and Digital Public Infrastructure (DPI).</p>
-        <span class="card-link">View consulting →</span>
-      </a>
+      {% for tile in home.workTiles %}
+        <a href="{{ tile.url }}" class="role-card">
+          <h3>{{ tile.title }}</h3>
+          <p>{{ tile.description }}</p>
+          <span class="card-link">{{ tile.linkText }}</span>
+        </a>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -61,18 +58,12 @@ description: Preeti Raghunath is a Lecturer in Digital Media and Society at the 
       <h2>Current Projects</h2>
     </div>
     <div>
-      <div class="project-card">
-        <h3>Negotiating Sustainable AI: India and Mexico</h3>
-        <p>Principal Investigator on a Grantham Amplification Fund project examining the socio-ecological impacts of AI infrastructures through policies and lived experiences in India and Mexico.</p>
-      </div>
-      <div class="project-card">
-        <h3>Weaving an AI Safety Net for UK and Canada</h3>
-        <p>Project Lead of a UKRI-SSHRC Knowledge Synthesis Grant project examining AI safety policy and governance across the UK and Canada.</p>
-      </div>
-      <div class="project-card">
-        <h3>Global Approaches to AI and Data: Theories and Practices</h3>
-        <p>Monograph under contract with Bristol University Press.</p>
-      </div>
+      {% for project in home.currentProjects %}
+        <div class="project-card">
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+        </div>
+      {% endfor %}
     </div>
   </div>
 </section>

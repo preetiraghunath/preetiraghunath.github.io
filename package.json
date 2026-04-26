@@ -8,7 +8,8 @@
     "clean": "rm -rf _site"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@11ty/eleventy": "^2.0.1",
+    "markdown-it": "^14.1.1"
   },
   "engines": {
     "node": ">=18.0.0"

@@ -1,0 +1,85 @@
+{
+  "researchAreas": [
+    "Media and Technology Policy",
+    "AI Policy and Safety",
+    "Global Governance of Technologies",
+    "Global South",
+    "Deliberative Policymaking"
+  ],
+  "publications": [
+    {
+      "citation": "Raghunath, P. (2026). Digital Public Infrastructure in India: A Deliberative Policy Ecology Approach. *International Journal of Communication*.",
+      "type": "Journal Article"
+    },
+    {
+      "citation": "Raghunath, P. (2025). \"Hated Speech\". In Mattoni (Eds.) *Handbook of Progressive Politics*. Edward Elgar.",
+      "type": "Book Chapter"
+    },
+    {
+      "citation": "Jaimee, S., Raghunath, P. & Guariso, D. (2025). *Unpacking the Interrelationships between the Global Digitalization Index and Human Development*. United Nations University.",
+      "type": "Research Report"
+    },
+    {
+      "citation": "Raghunath, P. (2024). Critical Data Governance: A Southern Standpoint to the study and practice of data. *Technology and Regulation*, 2024, 37–46.",
+      "type": "Journal Article"
+    },
+    {
+      "citation": "Raghunath, P. & Rahman, A. (2024). Opening up the Black Box of Communication Governance in South Asia: Critical Policy Ethnography as Methodology. In Padovani et al. (Eds.) *Global Communication Governance at the Crossroads*. Palgrave Macmillan.",
+      "type": "Book Chapter"
+    }
+  ],
+  "monographs": [
+    {
+      "title": "Global Approaches to AI and Data: Theories and Practices",
+      "meta": "Bristol University Press · Forthcoming",
+      "url": ""
+    },
+    {
+      "title": "Community Radio Policies in South Asia: A Deliberative Policy Ecology Approach",
+      "meta": "Palgrave Macmillan · 2020",
+      "url": "https://link.springer.com/book/10.1007/978-981-15-5629-6"
+    }
+  ],
+  "editedCollections": [
+    {
+      "title": "A Media Anthropology of India",
+      "meta": "Raghunath, P. and Narasimhan, H. (Eds.) · Routledge · In production"
+    },
+    {
+      "title": "Critical Political Economy of AI: Southern Experiences",
+      "meta": "Raghunath, P. (Ed.) · Palgrave Macmillan · 2026"
+    },
+    {
+      "title": "Governing Technologies",
+      "meta": "Bächtold, S.; Raghunath, P.; Lim, Joanne BY. (Eds.) · Journal of Digital Media and Policy, 15(3) · 2024"
+    },
+    {
+      "title": "(Re)iterations, Transgressions, Recognition: Politics and Practices of Media Policies in South Asia",
+      "meta": "Raghunath, P. and Koshy, S. (Eds.) · Journal of Digital Media and Policy, 13(1) · 2022"
+    }
+  ],
+  "currentProjects": [
+    {
+      "title": "Negotiating Sustainable AI: India and Mexico",
+      "description": "Principal Investigator on a Grantham Amplification Fund project examining the socio-ecological impacts of AI infrastructures through policies and lived experiences in India and Mexico."
+    },
+    {
+      "title": "Weaving an AI Safety Net for UK and Canada",
+      "description": "Project Lead of a UKRI-SSHRC Knowledge Synthesis Grant project examining AI safety governance across the UK and Canada."
+    }
+  ],
+  "editorialRoles": [
+    {
+      "title": "Palgrave Global Media Policy and Business",
+      "role": "Co-editor, Book Series"
+    },
+    {
+      "title": "Critical Policy Studies",
+      "role": "Editorial Board Member"
+    },
+    {
+      "title": "Journal of Digital Media and Policy",
+      "role": "Editorial Board Member"
+    }
+  ]
+}

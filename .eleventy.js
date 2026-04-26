@@ -1,7 +1,17 @@
+const markdownIt = require("markdown-it");
+const md = markdownIt();
+
 module.exports = function(eleventyConfig) {
+  // Render inline Markdown (italics, links) — used for citations and bio paragraphs
+  eleventyConfig.addFilter("md", (str) => str ? md.renderInline(str) : "");
+
   // Pass through assets (CSS, images)
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/CNAME");
+
+  // CMS admin — copy as-is, do not template-process
+  eleventyConfig.ignores.add("src/admin/**");
+  eleventyConfig.addPassthroughCopy("src/admin");
 
   // Dev server: bind to all interfaces so Tailscale can reach it
   eleventyConfig.setServerOptions({
