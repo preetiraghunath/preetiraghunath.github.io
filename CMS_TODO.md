@@ -29,9 +29,10 @@ See `CMS_PLAN.md` for the full plan.
 
 ## Phase 3 — GitHub OAuth
 
-- [ ] Create GitHub OAuth App (under Preeti's account)
-- [ ] Deploy OAuth proxy (Cloudflare Worker)
-- [ ] Set `base_url` and `repo` in `config.yml`
+- [ ] Create GitHub OAuth App (under Preeti's account, callback URL pointing to Netlify function)
+- [ ] Deploy `netlify-cms-github-oauth-provider` to a Netlify site
+- [ ] Set `OAUTH_GITHUB_CLIENT_ID` + `OAUTH_GITHUB_CLIENT_SECRET` as Netlify env vars
+- [ ] Set `base_url` and `repo` in `config.yml` to the Netlify site URL
 - [ ] Test login flow end-to-end
 
 ## Phase 4 — Verify CI/CD
@@ -52,3 +53,4 @@ _Notes will be added here as work progresses — gotchas, decisions made, things
 |---|---|---|
 | 2026-04-26 | Use Sveltia CMS over Tina CMS | Tina requires React for inline editing; Sveltia is native to Eleventy/git-based SSGs |
 | 2026-04-26 | Store content as JSON in `src/_data/` | Matches Eleventy's native data cascade; CMS edits become simple JSON diffs in git |
+| 2026-04-26 | Use Netlify for OAuth proxy (not Cloudflare) | Preeti already has a Netlify account |

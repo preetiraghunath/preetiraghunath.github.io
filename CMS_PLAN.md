@@ -90,15 +90,13 @@ Add `src/admin/` to Eleventy's passthrough copy in `.eleventy.js` so the admin f
 
 Sveltia uses GitHub as the auth provider and commits CMS changes back to the repo. GitHub Pages cannot run server-side code, so OAuth needs a small proxy.
 
-**Options:**
-1. **Sveltia's managed auth** (if available on the free plan) — no setup required
-2. **Cloudflare Worker** — Sveltia provides a ready-made Worker script; deploy once, set two env vars (GitHub OAuth app credentials)
-3. **Netlify Function** — alternative if already using Netlify
+**Approach: Netlify Function** (Preeti already has a Netlify account)
 
-Steps:
-1. Create a GitHub OAuth App under Preeti's GitHub account (callback URL points to the proxy)
-2. Deploy the OAuth proxy (Cloudflare Worker recommended — free tier is sufficient)
-3. Set `base_url` in `config.yml` to the proxy URL
+Sveltia/Decap CMS have a well-documented OAuth proxy for Netlify. Steps:
+1. Create a GitHub OAuth App under Preeti's GitHub account (callback URL: `https://<netlify-site>.netlify.app/.netlify/functions/auth/callback`)
+2. Deploy the `netlify-cms-github-oauth-provider` function to a Netlify site (free tier is sufficient — this is just the auth proxy, not the main site host)
+3. Set `OAUTH_GITHUB_CLIENT_ID` and `OAUTH_GITHUB_CLIENT_SECRET` as Netlify env vars
+4. Set `base_url` in `config.yml` to `https://<netlify-site>.netlify.app`
 
 ---
 
