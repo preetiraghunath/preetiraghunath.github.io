@@ -27,13 +27,13 @@ See `CMS_PLAN.md` for the full plan.
 - [x] Add `src/admin/` to Eleventy passthrough in `.eleventy.js`
 - [ ] Verify `/admin` loads correctly on local dev server (requires OAuth — test after Phase 3)
 
-## Phase 3 — GitHub OAuth
+## Phase 3 — GitHub OAuth ✓
 
-- [ ] Create GitHub OAuth App (under Preeti's account, callback URL pointing to Netlify function)
-- [ ] Deploy `netlify-cms-github-oauth-provider` to a Netlify site
-- [ ] Set `OAUTH_GITHUB_CLIENT_ID` + `OAUTH_GITHUB_CLIENT_SECRET` as Netlify env vars
-- [ ] Set `base_url` and `repo` in `config.yml` to the Netlify site URL
-- [ ] Test login flow end-to-end
+- [x] Create GitHub OAuth App (under Preeti's account, callback URL pointing to Netlify function)
+- [x] Deploy `sveltia-cms-auth` to Netlify (https://adorable-chaja-049ad2.netlify.app)
+- [x] Set `GITHUB_CLIENT_ID` + `GITHUB_CLIENT_SECRET` as Netlify env vars
+- [x] Set `base_url` in `config.yml` to the Netlify OAuth proxy URL
+- [ ] Test login flow end-to-end at preetiraghunath.com/admin after deploy
 
 ## Phase 4 — Verify CI/CD
 

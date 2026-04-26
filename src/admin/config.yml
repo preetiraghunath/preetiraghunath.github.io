@@ -2,7 +2,7 @@ backend:
   name: github
   repo: preetiraghunath/preetiraghunath.github.io
   branch: main
-  base_url: https://YOUR_NETLIFY_OAUTH_SITE.netlify.app  # update in Phase 3
+  base_url: https://adorable-chaja-049ad2.netlify.app
 
 media_folder: src/assets/images
 public_folder: /assets/images
